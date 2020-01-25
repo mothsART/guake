@@ -5,6 +5,14 @@ from locale import gettext as _
 gi.require_version('Vte', '2.91')  # vte-0.42
 from gi.repository import Vte
 from guake.customcommands import CustomCommands
+from guake.globals import NAME
+from guake.paths import LOCALE_DIR
+from guake.globals import bindtextdomain
+
+try:
+    bindtextdomain(NAME, LOCALE_DIR)
+except: # pylint: disable=bare-except
+    pass
 
 import logging
 log = logging.getLogger(__name__)

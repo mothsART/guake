@@ -49,13 +49,11 @@ def bindtextdomain(app_name, locale_dir=None):
         If omitted or None, then the current binding for app_name is used.
     """
 
-    import locale
-    from locale import gettext as _
-
+    import gettext
     log.info("Local binding for app '%s', local dir: %s", app_name, locale_dir)
 
-    locale.bindtextdomain(app_name, locale_dir)
-    locale.textdomain(app_name)
+    gettext.bindtextdomain(app_name, locale_dir)
+    gettext.textdomain(app_name)
 
 
 def is_run_from_git_workdir():
